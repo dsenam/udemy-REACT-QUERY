@@ -15,7 +15,9 @@ export function Posts() {
   const [selectedPost, setSelectedPost] = useState(null);
 
   // replace with useQuery
-  const {data, isError, isLoading} = useQuery("posts", fetchPosts);
+  const {data, isError, isLoading, } = useQuery("posts", fetchPosts, {
+    staleTime: 2000
+  });
 
   if(isError) return <h3>Oops, somenthing went wrong</h3>
 
